@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto";
+    color: #000;
+    transition: all 0.3s ease; /* Transición suave para todos los elementos */
+}
+
+body {
+    margin: 50px;    
+}
+
+header {
+    margin-top: 47px;
+}
+
+.header__logo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+main {
+    margin: 10px;
+}
+
+.section__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.section__form h1 {
+    padding-bottom: 38px;
+    font-family: "nunito";
+    font-size: 30px;
+    animation: fadeIn 0.5s ease; /* Animación de aparición para el título */
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login label {
+    font-size: 14px;
+    padding-bottom: 6px;
+}
+
+.login input,
+.section__social button {
+    margin-bottom: 22px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 56px;
+    font-family: "nunito";
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición para inputs */
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+    border: 1px solid #747474;
+    padding: 16px 46px 16px 18px;
+}
+
+.login input:focus {
+    border-color: #000; /* Cambia el color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al enfocar */
+}
+
+.login span {
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 38px;
+}
+
+.login input[type="submit"] {
+    background: #000;
+    color: #fff;
+    border-radius: 20vw; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el botón */
+}
+
+.login input[type="submit"]:hover {
+    background: #333; /* Cambia el color al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+.section__line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.section__line::before,
+.section__line::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #D8DADC;
+}
+
+.section__line::before {
+    margin-right: 10px;
+}
+
+.section__line::after {
+    margin-left: 10px;
+}
+
+.section__social {
+    display: flex;
+    gap: 15px;
+}
+
+.section__social button  {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #D8DADC;
+    height: 56px;
+    background: #fff;
+    border-radius: 10px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el botón social */
+}
+
+.section__social button:hover {
+    background: #f0f0f0; /* Cambia el color al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de elevación al pasar el ratón */
+}
+
+
+.section__social_img {
+    transform: translateY(-30px); 
+}
+footer {
+    text-align: center;
+}
+
+footer p + b {
+    font-family: "nunito";
+    font-size: 14px;
+}
+
+/* Animación para la aparición de elementos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de pulso para el botón de submit */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.submit-button {
+    background-color: #000;
+    color: white;
+    height: 3rem;
+    font-size: 1.2rem;
+    border-radius: 20vw;
+    animation: pulse 2s infinite; /* Pulsar animación */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.submit-button:hover {
+    background-color: #333; /* Cambia el color al pasar el ratón */
+}

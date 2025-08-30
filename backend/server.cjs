@@ -8,8 +8,28 @@ const noteRouter = require('./routes/noteRouter.cjs');
 const app = express();
 
 // Middlewares
-app.use(cors());
+// Middlewares
+const allowedOrigins = [
+  "http://localhost:5173",   // frontend en desarrollo
+  "https://tu-frontend.vercel.app" // (cuando subas tu frontend)
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Permitir llamadas sin origin (como Postman) o desde lista blanca
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS no permitido"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
 app.use(express.json());
+
 
 // Rutas
 app.use('/api/auth', authRouter);
