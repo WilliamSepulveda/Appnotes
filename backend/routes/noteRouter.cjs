@@ -1,20 +1,20 @@
-const express = require('express');
-const router = express.Router();
-const authMiddleware = require('../middleware/authMiddleware.cjs');
-const {
-  createNote,
-  getNotes,
-  getNoteById,
-  updateNote,
-  deleteNote
-} = require('../controllers/note.controller.cjs');
+  const express = require('express');
+  const router = express.Router();
+  const authMiddleware = require('../middleware/authMiddleware.cjs');
+  const {
+    createNote,
+    getNotes,
+    getNoteById,
+    updateNote,
+    deleteNote
+  } = require('../controllers/note.controller.cjs');
 
-router.use(authMiddleware);
+  router.use(authMiddleware);
 
-router.post('/', createNote);
-router.get('/', getNotes);
-router.get('/:id', getNoteById);
-router.put('/:id', updateNote);
-router.delete('/:id', deleteNote);
+  router.post('/', createNote);
+  router.get('/', getNotes);
+  router.get('/:id', getNoteById);
+  router.put('/:id', updateNote);
+  router.delete('/:id', deleteNote);
 
-module.exports = router;
+  module.exports = router;

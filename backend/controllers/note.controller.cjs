@@ -14,13 +14,14 @@ exports.createNote = async (req, res) => {
 exports.getNotes = async (req, res) => {
   try {
     const notes = new Notes();
-    const result = await notes.getNotes(req.user.id);
+    const result = await notes.getNotes({ userId: req.user.id }); // <- ahora sí es un filtro válido
     res.json(result);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error obteniendo notas' });
   }
 };
+
 
 exports.getNoteById = async (req, res) => {
   try {
