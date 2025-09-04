@@ -8,7 +8,7 @@ class Notes {
   }
 
   async createNote(userId, title, content) {
-    const db = await this.dbInstance.connect(); 
+    const db = await this.dbInstance.connectDB(); 
     return db.collection('notes').insertOne({
       userId,
       title,
@@ -19,7 +19,7 @@ class Notes {
   }
 
   async getNotes(query = {}) {
-  const db = await this.dbInstance.connect();
+  const db = await this.dbInstance.connectDB();
   const result = await db.collection('notes').find(query).toArray();
   if (!result.length) throw new Error('No documents found');
   return result;
@@ -27,12 +27,12 @@ class Notes {
 
 
   async getNoteById(id) {
-    const db = await this.dbInstance.connect();
+    const db = await this.dbInstance.connectDB();
     return db.collection('notes').findOne({ _id: new ObjectId(id) });
   }
 
   async updateNote(id, title, content) {
-    const db = await this.dbInstance.connect();
+    const db = await this.dbInstance.connectDB();
     return db.collection('notes').updateOne(
       { _id: new ObjectId(id) },
       { $set: { title, content, updatedAt: new Date() } }
@@ -40,7 +40,7 @@ class Notes {
   }
 
   async deleteNote(id) {
-    const db = await this.dbInstance.connect();
+    const db = await this.dbInstance.connectDB();
     return db.collection('notes').deleteOne({ _id: new ObjectId(id) });
   }
 }

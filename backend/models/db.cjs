@@ -10,7 +10,7 @@ class Database {
     this.db = null;
   }
 
-  async connect() {
+  async connectDB() {
     if (!this.db) {
       try {
         await this.client.connect();
