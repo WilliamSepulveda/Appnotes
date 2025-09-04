@@ -42,7 +42,7 @@ const Login = () => {
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
                 alert('no compartas tu clave')
-                navigate('/'); // Redirigir después del inicio de sesión
+                navigate('/notas'); // Redirigir después del inicio de sesión
             } else {
                 const errorData = await response.json();
                 setErrorMessage(errorData.message); // Mostrar mensaje de error

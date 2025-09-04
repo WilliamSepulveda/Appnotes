@@ -1,0 +1,49 @@
+.actions{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(152, 151, 151, 0.068);
+    padding: 5px;
+    border-radius: 5px;
+}
+.content_data{
+    width: 80%;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+p{
+    color: black;
+}
+img{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+.Editar{
+    background-color: rgba(27, 27, 27, 0.51);
+    margin: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+.Editar:hover{
+    transform: translateX(5px);
+}
+
+
+
+.Eliminar{
+    background-color: rgba(255, 0, 0, 0.752);
+    margin: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+
+.Eliminar:hover{
+    transform: translateX(5px);
+
+}

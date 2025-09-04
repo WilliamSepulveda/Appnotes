@@ -1,0 +1,16 @@
+:root {
+  --screen-bg: #1e1e1e;
+  --card-radius: 12px;
+  --text-light: #fff;
+}
+
+body { 
+    background:#eee; 
+    display:flex; 
+    justify-content:center; 
+    padding:24px; 
+}
+
+p{
+    color: #fff;
+}
