@@ -50,11 +50,12 @@ const Note = () => {
   };
 
   const handleNoteClick = (id) => {
-    navigate(`/note-editor/${id}`);
+      navigate(`/note-editor/${id}`);
+
   };
 
   const handleFabClick = () => {
-    navigate("/note/new");
+    navigate("/create-note");
   };
 
   return (

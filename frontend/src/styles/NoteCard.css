@@ -15,35 +15,31 @@ h3{
 p{
     color: black;
 }
-img{
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-}
-.Editar{
+
+.edit{
     background-color: rgba(27, 27, 27, 0.51);
     margin: 5px;
     padding: 2px;
     border-radius: 5px;
     color: white;
     border: none;
+    width: 2rem;
 }
-.Editar:hover{
+.edit:hover{
     transform: translateX(5px);
 }
 
-
-
-.Eliminar{
+.delete{
     background-color: rgba(255, 0, 0, 0.752);
     margin: 5px;
     padding: 2px;
     border-radius: 5px;
     color: white;
     border: none;
+    width: 2rem;
 }
 
-.Eliminar:hover{
+.delete:hover{
     transform: translateX(5px);
 
 }

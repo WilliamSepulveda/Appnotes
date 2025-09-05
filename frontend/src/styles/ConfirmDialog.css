@@ -1,0 +1,83 @@
+/* Fondo difuminado */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Caja del modal */
+.modal {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Texto */
+.modal p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Botones */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Botón cancelar */
+.modal-actions .discard {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal-actions .discard:hover {
+  background-color: #cfcfcf;
+  transform: translateY(-2px);
+}
+
+/* Botón confirmar (eliminar) */
+.modal-actions .save {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.modal-actions .save:hover {
+  background-color: #e63939;
+  transform: translateY(-2px);
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

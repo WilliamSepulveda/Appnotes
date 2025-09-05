@@ -1,0 +1,43 @@
+:root {
+  --screen-bg: #1e1e1e;
+  --card-radius: 12px;
+  --text-light: #fff;
+}
+
+body { 
+    background:#e72222; 
+    display:flex; 
+    justify-content:center; 
+    padding:24px; 
+}
+
+.container-dad{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.container-search{
+    background-color: rgb(72, 255, 0);
+    margin:5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.container-info{
+    background-color: #565555;
+    margin:5px;
+    padding: 5px;
+    border-radius: 10px;
+
+
+}
