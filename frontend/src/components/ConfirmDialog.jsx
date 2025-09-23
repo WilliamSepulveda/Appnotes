@@ -8,8 +8,12 @@ export default function ConfirmDialog({ isOpen, onClose, onConfirm }) {
       <div className="modal">
         <p>¿Quieres eliminar esta nota?</p>
         <div className="modal-actions">
-          <button className="discard" onClick={onClose}>Cancelar</button>
-          <button className="save" onClick={onConfirm}>Eliminar</button>
+          <button className="btn-discard" onClick={onClose}>
+            Cancelar
+          </button>
+          <button className="save" onClick={onConfirm}>
+            Eliminar
+          </button>
         </div>
       </div>
     </div>

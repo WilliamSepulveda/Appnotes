@@ -4,7 +4,7 @@ import "../styles/EmptyState.css";
 export default function EmptyState() {
   return (
     <div className="empty">
-      <img src={imagenEmptyState} alt="imagenEmptyState" />
+      <img src={imagenEmptyState} className="imagenEmptyState" />
       <p className="empty-text">Create your first note !</p>
     </div>
     );

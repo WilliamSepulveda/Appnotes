@@ -13,7 +13,7 @@ body {
 
 .screen {
   width:360px;
-  height:780px;
+  height:700px;
   background:var(--screen-bg);
   border-radius:18px;
   padding:18px;
@@ -92,4 +92,25 @@ body {
     padding-bottom:90px; 
     overflow:auto; 
     height:calc(100% - 120px); 
+}
+
+
+.containerbtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fab {
+  background-color: #3c3c3c;
+  box-shadow: 0 4px 18px #3c3c3c;
+  margin-top: 12em;
+  position: relative;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  margin-left: auto;
+}
+.fab:hover{
+  transform: translateY(-8px);
 }

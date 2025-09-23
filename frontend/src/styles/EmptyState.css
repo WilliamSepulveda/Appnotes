@@ -11,6 +11,13 @@ body {
     padding:24px; 
 }
 
-p{
-    color: #fff;
+.empty{
+  margin-top: 5rem;
+}
+
+
+.empty-text{
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-align: center;
 }

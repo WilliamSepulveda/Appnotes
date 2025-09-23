@@ -1,4 +1,6 @@
+// NoteCard.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // 👈 importa navigate
 import "../styles/NoteCard.css";
 import edit from "../media/mode.png";
 import del from "../media/delete.png";
@@ -6,10 +8,18 @@ import ConfirmDialog from "./ConfirmDialog";
 
 export default function NoteCard({ note, onEdit, onDelete, color }) {
   const [openConfirm, setOpenConfirm] = useState(false);
+  const navigate = useNavigate();
 
   const handleDeleteConfirm = () => {
-    onDelete(note); 
+    onDelete(note._id);
     setOpenConfirm(false);
+  };
+
+  const handleCancel = () => {
+    setOpenConfirm(false);
+    console.log();
+    ("Acción cancelada");
+    navigate("/notas"); // 👈 redirige al listado de notas
   };
 
   return (
@@ -24,14 +34,14 @@ export default function NoteCard({ note, onEdit, onDelete, color }) {
           </p>
         </div>
         <div className="actions">
-          <img src={edit} onClick={() => onEdit(note)} className="edit" />
+          <img src={edit} onClick={() => onEdit(note._id)} className="edit" />
           <img src={del} onClick={() => setOpenConfirm(true)} className="delete" />
         </div>
       </div>
 
       <ConfirmDialog
         isOpen={openConfirm}
-        onClose={() => setOpenConfirm(false)}
+        onClose={handleCancel} 
         onConfirm={handleDeleteConfirm}
       />
     </>

@@ -98,7 +98,7 @@ const NoteEditor = () => {
         />
         <div className="editor-actions">
           <button type="submit" className="btn-save-main">Guardar</button>
-          <button type="button" className="btn-cancel" onClick={() => navigate("/")}>Cancelar</button>
+          <button type="button" className="btn-cancel" onClick={() => navigate("/notas")}>Cancelar</button>
         </div>
       </form>
 

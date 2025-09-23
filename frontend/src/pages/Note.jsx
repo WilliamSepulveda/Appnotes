@@ -44,10 +44,28 @@ const Note = () => {
     setFiltered(notes.filter((n) => n.title.toLowerCase().includes(lower)));
   };
 
-  const handleDelete = (id) => {
-    setNotes(notes.filter((n) => n._id !== id));
-    setFiltered(filtered.filter((n) => n._id !== id));
-  };
+  const handleDelete = async (id) => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) throw new Error("No token found");
+
+    const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    if (!res.ok) throw new Error("Error al eliminar la nota");
+
+    // ✅ Si el backend confirma, borramos del estado
+    setNotes((prev) => prev.filter((n) => n._id !== id));
+    setFiltered((prev) => prev.filter((n) => n._id !== id));
+  } catch (error) {
+    console.error("Error al eliminar:", error);
+  }
+};
+
 
   const handleNoteClick = (id) => {
       navigate(`/note-editor/${id}`);
