@@ -4,7 +4,7 @@
   const {
     createNote,
     getNotes,
-    getNoteById,
+    getNote,
     updateNote,
     deleteNote
   } = require('../controllers/note.controller.cjs');
@@ -12,8 +12,8 @@
   router.use(authMiddleware);
 
   router.post('/', createNote);
+  router.get('/:idOrTitle',getNote);
   router.get('/', getNotes);
-  router.get('/:id', getNoteById);
   router.put('/:id', updateNote);
   router.delete('/:id', deleteNote);
 

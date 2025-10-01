@@ -25,11 +25,13 @@ class Notes {
   return result;
 }
 
+async getNoteByTitle(title) {
+  const db = await this.dbInstance.connectDB();
+  return await db.collection('notes').find({
+    title: { $regex: title, $options: "i" } // búsqueda parcial, sin importar mayúsculas/minúsculas
+  }).toArray();
+}
 
-  async getNoteById(id) {
-    const db = await this.dbInstance.connectDB();
-    return db.collection('notes').findOne({ _id: new ObjectId(id) });
-  }
 
   async updateNote(id, title, content) {
     const db = await this.dbInstance.connectDB();

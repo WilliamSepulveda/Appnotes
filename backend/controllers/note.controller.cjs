@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const Notes = require('../models/notesModel.cjs');
 
 exports.createNote = async (req, res) => {
@@ -23,17 +24,38 @@ exports.getNotes = async (req, res) => {
 };
 
 
-exports.getNoteById = async (req, res) => {
+exports.getNote = async (req, res) => {
   try {
+    const param = req.params.idOrTitle;
     const notes = new Notes();
-    const note = await notes.getNoteById(req.params.id);
-    if (!note) return res.status(404).json({ message: 'Nota no encontrada' });
+
+    let note;
+
+    // Si el parámetro es un ObjectId válido → busca por ID
+    if (ObjectId.isValid(param)) {
+      note = await notes.getNoteById(param);
+    }
+
+    // Si no encontró nada por ID o el parámetro no era un ObjectId válido → busca por título
+    if (!note) {
+      note = await notes.getNoteByTitle(param);
+    }
+
+    if (!note) {
+      return res.status(404).json({ message: "Nota no encontrada" });
+    }
+
     res.json(note);
+
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error obteniendo nota' });
+    res.status(500).json({ message: "Error obteniendo nota" });
   }
+
 };
+
+
+
 
 exports.updateNote = async (req, res) => {
   try {
