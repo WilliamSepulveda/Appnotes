@@ -9,8 +9,7 @@ function App() {
   return (
     <div>
       <nav>
-        <Link to="/">Inicio</Link> | <Link to="/notas">Notas</Link> |{" "}
-        <Link to="/login">Login</Link>
+        <Link to="/login"></Link>
       </nav>
 
       <Routes>

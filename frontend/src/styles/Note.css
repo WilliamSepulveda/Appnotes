@@ -8,12 +8,11 @@ body {
     background:#eee; 
     display:flex; 
     justify-content:center; 
-    padding:24px; 
 }
 
 .screen {
   width:360px;
-  height:700px;
+  height:594px;
   background:var(--screen-bg);
   border-radius:18px;
   padding:18px;

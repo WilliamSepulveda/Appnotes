@@ -55,6 +55,17 @@ exports.getNote = async (req, res) => {
 };
 
 
+exports.getNoteById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const note = await notesModel.getNoteById(id);
+    if (!note) return res.status(404).json({ error: "Nota no encontrada" });
+    res.json(note);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 
 
 exports.updateNote = async (req, res) => {

@@ -25,6 +25,13 @@ class Notes {
   return result;
 }
 
+async getNoteById(id) {
+  const db = await this.dbInstance.connectDB();
+  return await db.collection("notes").findOne({ _id: new ObjectId(id) });
+}
+
+
+
 async getNoteByTitle(title) {
   const db = await this.dbInstance.connectDB();
   return await db.collection('notes').find({
