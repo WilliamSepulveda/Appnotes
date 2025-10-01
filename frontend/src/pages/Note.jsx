@@ -4,6 +4,7 @@ import EmptyState from "../components/EmptyState";
 import NoteCard from "../components/NoteCard";
 import Header from "../components/Header";
 import "../styles/Note.css";
+import { API_URL } from "../apiConfig.js";
 
 import more from "../media/add.png";
 
@@ -17,9 +18,12 @@ const Note = () => {
   const fetchNotes = async () => {
     const token = localStorage.getItem("token");
     console.log("Token:", token);
-    const res = await fetch("http://localhost:5000/api/notes", {
+    const res = await fetch(`${API_URL}/api/notes`, {
       method: "GET",
-      headers: { "Authorization": `Bearer ${token}` }
+      headers: { 
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+    }
     });
     const data = await res.json();
     console.log("Notas:", data);
