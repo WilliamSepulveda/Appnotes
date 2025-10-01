@@ -12,7 +12,7 @@ body {
 
 .screen {
   width:360px;
-  height:594px;
+  height:700px;
   background:var(--screen-bg);
   border-radius:18px;
   padding:18px;
@@ -102,7 +102,7 @@ body {
 .fab {
   background-color: #3c3c3c;
   box-shadow: 0 4px 18px #3c3c3c;
-  margin-top: 12em;
+  margin-top: 5em;
   position: relative;
   border-radius: 50%;
   width: 4rem;

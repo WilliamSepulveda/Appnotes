@@ -5,38 +5,30 @@ import NoteCard from "../components/NoteCard";
 import Header from "../components/Header";
 import "../styles/Note.css";
 
+import more from "../media/add.png";
+
 const Note = () => {
   const [notes, setNotes] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const navigate = useNavigate();
   const colors = ["#FFADAD", "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF", "#BDB2FF", "#FFC6FF"];
 
-  useEffect(() => {
-    const fetchNotes = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/notes", {
-          method: "GET",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json"
-          }
-        });
+ useEffect(() => {
+  const fetchNotes = async () => {
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
+    const res = await fetch("http://localhost:5000/api/notes", {
+      method: "GET",
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+    const data = await res.json();
+    console.log("Notas:", data);
+    setNotes(data);
+    setFiltered(data);
+  };
+  fetchNotes();
+}, []);
 
-        if (!res.ok) {
-          throw new Error(`Error ${res.status}: ${res.statusText}`);
-        }
-
-        const data = await res.json();
-        setNotes(data);
-        setFiltered(data);
-      } catch (error) {
-        console.error("Error al obtener notas:", error);
-      }
-    };
-
-    fetchNotes();
-  }, []);
 
   const handleSearch = (query) => {
     if (!query) return setFiltered(notes);
@@ -58,7 +50,7 @@ const Note = () => {
 
     if (!res.ok) throw new Error("Error al eliminar la nota");
 
-    // ✅ Si el backend confirma, borramos del estado
+    // ✅ Si el backend cew Notes()borramos del estado
     setNotes((prev) => prev.filter((n) => n._id !== id));
     setFiltered((prev) => prev.filter((n) => n._id !== id));
   } catch (error) {
@@ -95,9 +87,9 @@ const Note = () => {
     ))}
   </div>
 )}
-
-
-      <button className="fab" onClick={handleFabClick}>+</button>
+      <button className="fab" onClick={handleFabClick}>
+        <img src={more} className="Add" />
+      </button>
     </div>
   );
 };

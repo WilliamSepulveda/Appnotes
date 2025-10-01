@@ -32,7 +32,7 @@ const SignUp = () => {
             if (response.ok) {
                 // Si la creación fue exitosa, redirigir al usuario
                 alert('Cuenta creada exitosamente. Por favor, inicia sesión.');
-                navigate('/Login');
+                navigate('/');
             } else {
                 // Manejar errores devueltos por el servidor
                 setErrorMessage(data.message || 'Error al crear la cuenta.');

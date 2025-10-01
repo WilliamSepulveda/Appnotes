@@ -21,7 +21,6 @@ class Notes {
   async getNotes(query = {}) {
   const db = await this.dbInstance.connectDB();
   const result = await db.collection('notes').find(query).toArray();
-  if (!result.length) throw new Error('No documents found');
   return result;
 }
 

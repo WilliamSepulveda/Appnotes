@@ -2,11 +2,8 @@ const { MongoClient } = require("mongodb");
 
 class Database {
   constructor() {
-    const { MONGO_PROTOCOL, MONGO_HOST, MONGO_PORT, MONGO_NAME, MONGO_USER, MONGO_PSW } = process.env;
-    
-    const uri = `${MONGO_PROTOCOL}://${MONGO_USER}:${MONGO_PSW}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_NAME}`;
-    
-    this.client = new MongoClient(uri);
+    const { MONGO_URI } = process.env;
+    this.client = new MongoClient(MONGO_URI);
     this.db = null;
   }
 
@@ -14,10 +11,10 @@ class Database {
     if (!this.db) {
       try {
         await this.client.connect();
-        this.db = this.client.db(process.env.MONGO_NAME);
-        console.log("✅ Conectado a MongoDB");
+        this.db = this.client.db(); // el nombre de la DB ya está en la URI
+        console.log("✅ Conectado a MongoDB Atlas");
       } catch (error) {
-        console.error("❌ Error conectando a MongoDB:", error);
+        console.error("❌ Error conectando a MongoDB Atlas:", error);
         throw error;
       }
     }
@@ -27,7 +24,7 @@ class Database {
   async disconnect() {
     if (this.client) {
       await this.client.close();
-      console.log("🔌 Conexión a MongoDB cerrada");
+      console.log("🔌 Conexión a MongoDB Atlas cerrada");
     }
   }
 }

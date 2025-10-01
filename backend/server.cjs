@@ -1,22 +1,31 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const authRouter = require('./routes/authRouter.cjs');
 const noteRouter = require('./routes/noteRouter.cjs');
 
 const app = express();
 
-// Middlewares
-// Middlewares
+// 🔗 Conectar a MongoDB Atlas
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("✅ Conectado a MongoDB Atlas"))
+.catch((err) => {
+  console.error("❌ Error conectando a MongoDB:", err.message);
+  process.exit(1);
+});
+
+// 🌍 Configuración de CORS
 const allowedOrigins = [
   "http://localhost:5173",   // frontend en desarrollo
-  "https://tu-frontend.vercel.app" // (cuando subas tu frontend)
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Permitir llamadas sin origin (como Postman) o desde lista blanca
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -30,17 +39,15 @@ app.use(cors({
 
 app.use(express.json());
 
-
-// Rutas
+// 📌 Rutas
 app.use('/api/auth', authRouter);
 app.use('/api/notes', noteRouter);
 
-// Ruta de prueba
+// 🧪 Ruta de prueba
 app.get('/', (req, res) => res.send('Backend de AppNotes funcionando'));
 
-// Levantar servidor
+// 🚀 Levantar servidor
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
 
-
-module.exports = app; 
+module.exports = app;

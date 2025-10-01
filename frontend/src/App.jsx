@@ -8,17 +8,12 @@ import CreateNota from "./pages/CreateNota.jsx";
 function App() {
   return (
     <div>
-      <nav>
-        <Link to="/login"></Link>
-      </nav>
-
       <Routes>
         <Route path="/create-note" element={< CreateNota/>} />
         <Route path="/notas" element={< Notas/>} />
         <Route path="/note-editor/:id" element={< NoteEditor />}></Route>
-        <Route path="/note/new"></Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/Register" element={<Register />}></Route>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </div>
   );
