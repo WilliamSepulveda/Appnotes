@@ -5,7 +5,7 @@ export default function EmptyState() {
   return (
     <div className="empty">
       <img src={imagenEmptyState} className="imagenEmptyState" />
-      <p className="empty-text">Create your first note !</p>
+      <p className="empty-text">Create your note!</p>
     </div>
     );
 }

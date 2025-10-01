@@ -81,20 +81,21 @@ const Note = () => {
       <Header onSearch={handleSearch} />
 
       {filtered.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <div className="notes-list">
-          {filtered.map((n, index) => (
-            <NoteCard
-              key={n._id}
-              note={n}
-              onEdit={() => handleNoteClick(n._id)}
-              onDelete={() => handleDelete(n._id)}
-              color={colors[index % colors.length]}
-            />
-          ))}
-        </div>
-      )}
+  <EmptyState message="No se encontraron notas con ese título." />
+) : (
+  <div className="notes-list">
+    {filtered.map((n, index) => (
+      <NoteCard
+        key={n._id}
+        note={n}
+        onEdit={() => handleNoteClick(n._id)}
+        onDelete={() => handleDelete(n._id)}
+        color={colors[index % colors.length]}
+      />
+    ))}
+  </div>
+)}
+
 
       <button className="fab" onClick={handleFabClick}>+</button>
     </div>
