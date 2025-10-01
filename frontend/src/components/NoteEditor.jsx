@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/NoteEditor.css";
+import { API_URL } from "../apiConfig.js";
 
 const NoteEditor = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const NoteEditor = () => {
         const token = localStorage.getItem("token");
         if (!token) throw new Error("No token found");
 
-        const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+        const res = await fetch(`${API_URL}/api/notes/${id}`, {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`,

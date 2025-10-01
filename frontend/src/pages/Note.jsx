@@ -45,7 +45,7 @@ const Note = () => {
     const token = localStorage.getItem("token");
     if (!token) throw new Error("No token found");
 
-    const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+    const res = await fetch(`${API_URL}/api/notes/${id}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`
