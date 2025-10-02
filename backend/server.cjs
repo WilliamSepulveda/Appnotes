@@ -25,7 +25,6 @@ const allowedOrigins = [
   "https://williamsepulveda.github.io/Appnotes"  // GitHub Pages
 ];
 
-
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
