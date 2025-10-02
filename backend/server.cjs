@@ -22,18 +22,20 @@ mongoose.connect(process.env.MONGO_URI, {
 // Configuración de CORS
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://williamsepulveda.github.io/Appnotes"
+  "https://williamsepulveda.github.io"
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
+      console.log("Origin:", origin);
     if (!origin || allowedOrigins.includes(origin)) callback(null, true);
     else callback(new Error("CORS no permitido"));
   },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
   credentials: true
 }));
+
 
 // Middleware para parsear JSON
 app.use(express.json());
