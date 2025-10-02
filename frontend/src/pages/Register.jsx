@@ -94,7 +94,7 @@ const SignUp = () => {
                 </section>
             </main>
             <footer>
-               <p>Your have an account? 
+               <p>Your have an accountt? 
                     <Link to='/'><b>Sign inn</b></Link>
                 </p>  
             </footer>
