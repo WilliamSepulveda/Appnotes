@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // 🌍 Configuración de CORS
 const allowedOrigins = [
   "http://localhost:5173",  // frontend local
-  "https://williamsepulveda.github.io"  // GitHub Pages
+  "https://williamsepulveda.github.io/Appnotes"  // GitHub Pages
 ];
 
 
