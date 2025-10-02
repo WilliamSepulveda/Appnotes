@@ -53,8 +53,8 @@ const NoteEditor = () => {
 
       const method = id ? "PUT" : "POST";
       const url = id
-        ? `http://localhost:5000/api/notes/${id}`
-        : `http://localhost:5000/api/notes`;
+        ? `${API_URL}/api/notes/${id}`
+      : `${API_URL}/api/notes`;
 
       const res = await fetch(url, {
         method,
