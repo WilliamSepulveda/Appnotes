@@ -95,7 +95,7 @@ const SignUp = () => {
             </main>
             <footer>
                <p>Your have an account? 
-                    <Link to='/'><b>Sign in</b></Link>
+                    <Link to='/'><b>Sign inn</b></Link>
                 </p>  
             </footer>
         </>
